@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Table(name = "requirement_values")
 @Entity
 @Getter
@@ -21,9 +23,13 @@ public class RequirementValue {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "requirement_id", nullable = false, foreignKey = @ForeignKey(name = "FK_REQUIREMENT"))
     private Requirement requirement;
 
+    @ManyToMany
+    @JoinTable(name = "form_requirement_values", joinColumns = @JoinColumn(name = "requirement_value_id"),
+    foreignKey = @ForeignKey(name = "FK_REQUIREMENT_VALUE_FORMS"),
+    inverseJoinColumns = @JoinColumn(name = "form_id"), inverseForeignKey = @ForeignKey(name = "FK_FORM_REQUIREMENT_VALUES"))
+    private List<Form> forms;
 }

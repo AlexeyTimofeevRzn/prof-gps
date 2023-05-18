@@ -24,13 +24,16 @@ public class Form {
     private Country country;
 
     @ManyToOne
-    @Column(name = "city", nullable = true)
+    @JoinColumn(name = "city", nullable = true)
     private City city;
 
     @ManyToOne
-    @Column(name = "direction", nullable = false)
+    @JoinColumn(name = "direction", nullable = false)
     private Direction direction;
 
     @ManyToMany
+    @JoinTable(name = "form_requirement_values", joinColumns = @JoinColumn(name = "form_id"),
+            foreignKey = @ForeignKey(name = "FK_FORM_REQUIREMENT_VALUES"),
+            inverseJoinColumns = @JoinColumn(name = "requirement_value_id"), inverseForeignKey = @ForeignKey(name = "FK_REQUIREMENT_VALUE_FORMS"))
     private List<RequirementValue> requirementValue;
 }

@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CollectionId;
 
+import java.util.List;
+
 @Entity
 @Table(name = "requirements")
 @Getter
@@ -22,5 +24,12 @@ public class Requirement {
 
     @Column(name = "description", nullable = false)
     private String description;
+
+    @ManyToMany
+    @JoinTable(name = "vacancy_requirements", joinColumns =
+    @JoinColumn(name = "requirement_id"), foreignKey = @ForeignKey(name = "FK_REQUIREMENTS_VACANCY"),
+            inverseJoinColumns = @JoinColumn(name = "vacancy_id"),
+            inverseForeignKey = @ForeignKey(name = "FK_VACANCY_REQUIREMENTS"))
+    private List<Vacancy> vacancies;
 
 }

@@ -16,11 +16,6 @@ public class City {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "country", nullable = false, referencedColumnName = "name")
-    private Country country;
-
     @Column(name = "location", nullable = false)
     private String location;
 }
