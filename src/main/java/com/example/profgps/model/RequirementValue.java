@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.annotation.processing.Generated;
-
 @Table(name = "requirement_values")
 @Entity
 @Getter
@@ -23,8 +21,9 @@ public class RequirementValue {
     @Column(name = "description", nullable = false)
     private String description;
 
+    @Id
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false, foreignKey = @ForeignKey(name = "FK_REQUIREMENT"))
+    @JoinColumn(name = "requirement_id", nullable = false, foreignKey = @ForeignKey(name = "FK_REQUIREMENT"))
     private Requirement requirement;
 
 }
