@@ -23,5 +23,4 @@ public class Requirement {
     @Column(name = "description", nullable = false)
     private String description;
 
-//    prviate
 }
