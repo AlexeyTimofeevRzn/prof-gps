@@ -31,7 +31,6 @@ public class Form {
     @Column(name = "direction", nullable = false)
     private Direction direction;
 
-
-    @OneToMany(mappedBy = "requirement_values")
+    @ManyToMany
     private List<RequirementValue> requirementValue;
 }
