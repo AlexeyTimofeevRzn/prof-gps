@@ -18,4 +18,6 @@ public class City {
 
     @Column(name = "location", nullable = false)
     private String location;
+
+
 }

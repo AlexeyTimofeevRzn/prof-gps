@@ -1,9 +1,6 @@
 package com.example.profgps.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,4 +18,8 @@ public class Country {
 
     @Column(name = "coords", nullable = false)
     private String coords;
+
+    @ManyToOne
+    @JoinColumn(name = "country", nullable = false, foreignKey = @ForeignKey(name = "FK_COUNTRY"))
+    private Country country;
 }
