@@ -19,5 +19,8 @@ public class City {
     @Column(name = "location", nullable = false)
     private String location;
 
+    @ManyToOne
+    @JoinColumn(name = "country", nullable = false, foreignKey = @ForeignKey(name = "FK_COUNTRY"))
+    private Country country;
 
 }

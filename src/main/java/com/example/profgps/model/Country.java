@@ -18,8 +18,4 @@ public class Country {
 
     @Column(name = "coords", nullable = false)
     private String coords;
-
-    @ManyToOne
-    @JoinColumn(name = "country", nullable = false, foreignKey = @ForeignKey(name = "FK_COUNTRY"))
-    private Country country;
 }
